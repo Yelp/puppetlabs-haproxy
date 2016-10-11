@@ -1,6 +1,6 @@
 <% if @options.is_a?(Hash) -%>
 <% @options.sort.each do |key, val| -%>
-<% Array(val).each do |item| -%>
+<% Array(val).reject {|v| v == :undef }.compact.each do |item| -%>
   <%= key %> <%= item %>
 <% end -%>
 <% end -%>
@@ -11,7 +11,7 @@
 <%# value (or values, one per line) -%>
 <% @options.each do |option| -%>
 <% option.sort.map do |key, val| -%>
-<% Array(val).each do |item| -%>
+<% Array(val).reject {|v| v == :undef }.compact.each do |item| -%>
   <%= key %> <%= item %>
 <% end -%>
 <% end -%>
